@@ -5,9 +5,12 @@ description: > # This site is intended to serve as a convenient
   URL to use to force overriding for otherwise unreachable 'adult'
   sites as categorized by the PUSHD Lightspeed filter.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://yourdomain.com" # the base hostname & protocol for your site
+url: "http://override.puhsd.org" # the base hostname & protocol for your site
 twitter_username: puhsd_its
 github_username:  puhsd
 
 # Build settings
 markdown: kramdown
+
+sass:
+    sass_dir: _sass
