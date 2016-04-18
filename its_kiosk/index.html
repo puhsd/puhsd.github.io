@@ -1,0 +1,36 @@
+---
+layout: its_kiosk
+title: PUHSD ITS Kiosk
+---
+<iframe src="http://nagdash.puhsd.org" frameborder="0" style="overflow:hidden;height:1024px;width:1920px" height="1024px" width="1920px" id="rotator"></iframe>
+
+
+<script>
+// start when the page is loaded
+window.onload = function() {
+
+  var urls = [
+    "http://nagdash.puhsd.org",
+    "http://status.puhsd.org",
+    "http://status.haikulearning.com/",
+    "http://www.google.com/appsstatus#hl=en&v=status"
+  ];
+
+  var index = 1;
+  var el = document.getElementById("rotator");
+
+  setTimeout(function rotate() {
+
+    if ( index === urls.length ) {
+      index = 0;
+    }
+
+    el.src = urls[index];
+    index  = index + 1;
+
+    // continue rotating iframes
+    setTimeout(rotate, 7000);
+
+  }, 5000); // 5000ms = 5s
+};
+</script>
