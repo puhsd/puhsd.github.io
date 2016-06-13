@@ -2,11 +2,12 @@
 layout: its_kiosk
 title: PUHSD ITS Kiosk
 ---
-<iframe src="http://nagdash.puhsd.org" frameborder="0" style="overflow:hidden;float:left" width="1120px" height="800px" id="static"></iframe>
-<div id="wrapper" style="width:800px,height:800px;overflow:hidden;padding:0px;float:right;">
-  <iframe src="http://status.puhsd.org" frameborder="0" style="-webkit-transform: scale(.78);-webkit-transform-origin: 0 0;" width="1024px" height="1384px" id="rotator"></iframe>
+<div style="width:1920px;height:1080px">
+  <iframe src="http://nagdash.puhsd.org" frameborder="0" style="overflow:hidden;float:left;margin:0" width="1118px" height="800px" id="static"></iframe>
+  <div id="wrapper" style="width:800px,height:800px;overflow:hidden;padding:0px;margin-right:-224px;float:right">
+    <iframe src="http://status.puhsd.org" frameborder="0" style="-webkit-transform: scale(0.78);-webkit-transform-origin: 0 0;-moz-transform: scale(0.78);-moz-transform-origin: 0 0;" width="1024px" height="1384px" id="rotator"></iframe>
+  </div>
 </div>
-
 
 <script>
 // start when the page is loaded
