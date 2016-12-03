@@ -42,7 +42,7 @@ window.onload = function() {
 window.setInterval("reloadStatic();", 3000);
 
 function reloadStatic() {
-    document.frames["static"].location.reload();
+    window.frames["static"].src = "https://omnicenter.puhsd.org/ata/noc-view.php";
     console.log("Refresh static iFrame");
 }
 
