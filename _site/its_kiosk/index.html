@@ -40,8 +40,8 @@
     </head>
     <body style="margin:0px;padding:0px;overflow:hidden">
         <div style="width:1920px;height:1080px">
-  <div style="border:1px solid #ececec;float:left;margin:0;padding:0;overflow:hidden;width:1120px;height:800px;">
-    <iframe src="http://nagdash.puhsd.org" frameborder="0" style="overflow:hidden;float:left;margin:0" width="1116px" height="800px" id="static"></iframe>
+  <div style="border:1px solid #ececec;float:left;margin:0;padding:0;overflow:hidden;width:1120px;height:900px;">
+    <iframe src="https://omnicenter.puhsd.org/ata/noc-view.php" frameborder="0" style="overflow:hidden;float:left;margin:0" width="1116px" height="900px" id="static"></iframe>
   </div>
   <div id="webkit-transformer" style="border:1px solid #ececec;float:right;width:800px;height:1080px;overflow:hidden;padding:0px;">
     <iframe src="http://status.puhsd.org" frameborder="0" style="-webkit-transform: scale(0.78);-webkit-transform-origin: 0 0;-moz-transform: scale(0.78);-moz-transform-origin: 0 0;" width="1024px" height="1300px" id="rotator"></iframe>
@@ -51,6 +51,13 @@
 <script>
 // start when the page is loaded
 window.onload = function() {
+
+  setTimeout(function rotate() {
+    console.log('Refresh static iFrame');
+    document.getElementById("static").src+="";
+    // continue rotating iframes
+    setTimeout(rotate, 1500000);
+  }, 1500000); // 5000ms = 5s
 
   var urls = [
     "http://status.puhsd.org",
@@ -62,7 +69,7 @@ window.onload = function() {
   var el = document.getElementById("rotator");
 
   setTimeout(function rotate() {
-
+    console.log('cycle Rotator');
     if ( index === urls.length ) {
       index = 0;
     }
@@ -75,12 +82,13 @@ window.onload = function() {
 
   }, 15000); // 5000ms = 5s
 };
+
 </script>
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://code.jquery.com/jquery.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="assets/javascripts/bootstrap.min.js"></script>
-        <script src="assets/javascripts/holder.js"></script>
+        <script src="/assets/javascripts/bootstrap.min.js"></script>
+        <script src="/assets/javascripts/holder.js"></script>
     </body>
 </html>

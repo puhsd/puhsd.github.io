@@ -15,6 +15,13 @@ title: PUHSD ITS Kiosk
 // start when the page is loaded
 window.onload = function() {
 
+  setTimeout(function rotate() {
+    console.log('Refresh static iFrame');
+    document.getElementById("static").src+="";
+    // continue rotating iframes
+    setTimeout(rotate, 1500000);
+  }, 1500000); // 5000ms = 5s
+
   var urls = [
     "http://status.puhsd.org",
     "http://status.haikulearning.com/",
@@ -25,7 +32,7 @@ window.onload = function() {
   var el = document.getElementById("rotator");
 
   setTimeout(function rotate() {
-
+    console.log('cycle Rotator');
     if ( index === urls.length ) {
       index = 0;
     }
