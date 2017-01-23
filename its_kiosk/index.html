@@ -8,7 +8,7 @@ title: PUHSD ITS Kiosk
       <iframe src="https://omnicenter.puhsd.org/ata/noc-view.php" frameborder="0" style="overflow:hidden;float:left;margin:0" width="1116px" height="900px" id="static"></iframe>
     </div>
     <div style="background-color:#f2f2f2;border:1px solid #ececec;float:left;margin:0;padding:0;overflow:hidden;width:1120px;height:180px">
-      <p style="color:rgb(51, 204, 51);font-size:140px;font-family: 'Droid Sans Mono', monospace;text-align:center" id="clock" class="clock">
+      <p style="color:rgb(51, 204, 51);font-size:120px;font-family: 'Droid Sans Mono', monospace;text-align:center" id="clock" class="clock">
         <span id="clock-h" style="">00</span>:<span id="clock-m" style="">00</span><span id="clock-s" style="color:rgba(51, 204, 51, 0.8);font-size:60px;width:120px">00</span>
       </p>
     </div>
@@ -55,22 +55,23 @@ window.onload = function() {
 };
 
 function clock() {// We create a new Date object and assign it to a variable called "time".
-var time = new Date(),
-    
-    // Access the "getHours" method on the Date object with the dot accessor.
-    hours = time.getHours(),
-    
-    // Access the "getMinutes" method with the dot accessor.
-    minutes = time.getMinutes(),
-    
-    
-    seconds = time.getSeconds();
+  var time = new Date(),
+  
 
-    ms = time.getMilliseconds();
+  // Access the "getHours" method on the Date object with the dot accessor.
+  hours = time.getHours(),
+  
+  // Access the "getMinutes" method with the dot accessor.
+  minutes = time.getMinutes(),
+  
+  
+  seconds = time.getSeconds();
 
-    document.querySelectorAll('#clock-h')[0].innerHTML = harold(hours);
-    document.querySelectorAll('#clock-m')[0].innerHTML = harold(minutes);
-    document.querySelectorAll('#clock-s')[0].innerHTML = harold(seconds);
+  // document.querySelectorAll('#date')[0].innerHTML = harold(time).toString('yyyy-MM-dd');
+
+  document.querySelectorAll('#clock-h')[0].innerHTML = harold(hours);
+  document.querySelectorAll('#clock-m')[0].innerHTML = harold(minutes);
+  document.querySelectorAll('#clock-s')[0].innerHTML = harold(seconds);
   
   function harold(standIn) {
     if (standIn < 10) {
