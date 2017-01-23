@@ -32,6 +32,7 @@
         <link rel="manifest" href="/assets/images/manifest.json">
         <link rel="mask-icon" href="/assets/images/safari-pinned-tab.svg" color="#5bbad5">
         <link rel="shortcut icon" href="/assets/images/favicon.ico">
+        <link href="https://fonts.googleapis.com/css?family=Wallpoet" rel="stylesheet">
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="msapplication-TileImage" content="/assets/images/mstile-144x144.png">
         <meta name="msapplication-config" content="/assets/images/browserconfig.xml">
@@ -40,8 +41,15 @@
     </head>
     <body style="margin:0px;padding:0px;overflow:hidden">
         <div style="width:1920px;height:1080px">
-  <div style="border:1px solid #ececec;float:left;margin:0;padding:0;overflow:hidden;width:1120px;height:900px;">
-    <iframe src="https://omnicenter.puhsd.org/ata/noc-view.php" frameborder="0" style="overflow:hidden;float:left;margin:0" width="1116px" height="900px" id="static"></iframe>
+  <div style="height:1080px;width:1120px;float:left;margin:0;padding:0;overflow:hidden;">
+    <div style="border:1px solid #ececec;float:left;margin:0;padding:0;overflow:hidden;width:1120px;height:900px;">
+      <iframe src="https://omnicenter.puhsd.org/ata/noc-view.php" frameborder="0" style="overflow:hidden;float:left;margin:0" width="1116px" height="900px" id="static"></iframe>
+    </div>
+    <div style="background:#666;border:1px solid #ececec;float:left;margin:0;padding:0;overflow:hidden;width:1120px;height:180px">
+      <p style="color:rgb(102, 255, 102);font-size:140px;font-family: 'Wallpoet',monospace;text-align:center" id="clock" class="clock">
+        <span id="clock-h" style="color:rgb(102, 255, 102);">00</span>:<span id="clock-m" style="color:rgb(102, 255, 102);">00</span><span id="clock-s" style="color:rgba(102, 255, 102, 0.6);font-size:60px;width:120px">00</span>
+      </p>
+    </div>
   </div>
   <div id="webkit-transformer" style="border:1px solid #ececec;float:right;width:800px;height:1080px;overflow:hidden;padding:0px;">
     <iframe src="http://status.puhsd.org" frameborder="0" style="-webkit-transform: scale(0.78);-webkit-transform-origin: 0 0;-moz-transform: scale(0.78);-moz-transform-origin: 0 0;" width="1024px" height="1300px" id="rotator"></iframe>
@@ -62,7 +70,8 @@ window.onload = function() {
   var urls = [
     "http://status.puhsd.org",
     "http://status.haikulearning.com/",
-    "http://www.google.com/appsstatus#hl=en&v=status"
+    "http://www.google.com/appsstatus#hl=en&v=status",
+    "http://stats.pingdom.com/kp248crxofzl"
   ];
 
   var index = 1;
@@ -82,6 +91,33 @@ window.onload = function() {
 
   }, 15000); // 5000ms = 5s
 };
+
+function clock() {// We create a new Date object and assign it to a variable called "time".
+var time = new Date(),
+    
+    // Access the "getHours" method on the Date object with the dot accessor.
+    hours = time.getHours(),
+    
+    // Access the "getMinutes" method with the dot accessor.
+    minutes = time.getMinutes(),
+    
+    
+    seconds = time.getSeconds();
+
+    ms = time.getMilliseconds();
+
+    document.querySelectorAll('#clock-h')[0].innerHTML = harold(hours);
+    document.querySelectorAll('#clock-m')[0].innerHTML = harold(minutes);
+    document.querySelectorAll('#clock-s')[0].innerHTML = harold(seconds);
+  
+  function harold(standIn) {
+    if (standIn < 10) {
+      standIn = '0' + standIn
+    }
+    return standIn;
+  }
+}
+setInterval(clock, 1000);
 
 </script>
 
